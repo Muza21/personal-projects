@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1717616742 source:/home/lasha/projects/c-projects/student-grade-tracker/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Student.h"
+
+1717633120 /home/lasha/projects/c-projects/student-grade-tracker/Student.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1717632991 source:/home/lasha/projects/c-projects/student-grade-tracker/Student.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Student.h"
+	"Helpers.h"
+	<conio.h>
+	<unistd.h>
+	<termios.h>
+
+1717633859 /home/lasha/projects/c-projects/student-grade-tracker/Helpers.h
+	<stdio.h>
+	<stdarg.h>
+
+1717630741 source:/home/lasha/projects/c-projects/student-grade-tracker/Helpers.c
+	"Helpers.h"
+

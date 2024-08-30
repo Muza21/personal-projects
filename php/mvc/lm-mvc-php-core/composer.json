@@ -1,0 +1,15 @@
+{
+    "name": "laramz/mvc-php",
+    "autoload": {
+        "psr-4": {
+            "laramz\\mvcphp\\": "."
+        }
+    },
+    "authors": [
+        {
+            "name": "Muza21",
+            "email": "lasha.muzashvili1@gmail.com"
+        }
+    ],
+    "require": {}
+}

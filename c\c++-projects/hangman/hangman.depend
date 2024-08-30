@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1710753822 source:/home/lasha/Documents/tsu/C programming/projects/hangman/main.c
+	<stdio.h>
+	<stdlib.h>
+
