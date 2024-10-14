@@ -24,3 +24,8 @@ Consider the number of unique elements of nums to be k, to get accepted, you nee
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+## Problem 4: Palindrome Number
+
+- Solution: [problem4.js](./problem4.js)
+- Description: Given an integer x, return true if x is a palindrome, and false otherwise.

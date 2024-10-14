@@ -42,3 +42,18 @@ Find and return the maximum profit you can achieve.
 - Description: You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
 
 Return true if you can reach the last index, or false otherwise.
+
+## Problem 5: Maximal Score After Applying K Operations
+
+- Solution: [problem5.js](./problem5.js)
+- Description: You are given a 0-indexed integer array nums and an integer k. You have a starting score of 0.
+
+In one operation:
+
+    choose an index i such that 0 <= i < nums.length,
+    increase your score by nums[i], and
+    replace nums[i] with ceil(nums[i] / 3).
+
+Return the maximum possible score you can attain after applying exactly k operations.
+
+The ceiling function ceil(val) is the least integer greater than or equal to val.
