@@ -7,6 +7,7 @@
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
             <span class="font-semibold title-font text-gray-700">AUTHOR</span>
             <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+            @if(session()->has('user_id'))
             <span class="flex gap-[10px] mt-4">
               <a href="/posts/{post}" class="hover:bg-gray-300 p-2 rounded-md block">
                 <svg class='w-5 h-5 cursor-pointer' fill="#000000" version="1.1" id="Capa_1"
@@ -37,6 +38,7 @@
                 </svg>
               </a>
             </span>
+            @endif
           </div>
           <div class="md:flex-grow">
             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Meditation bushwick direct trade taxidermy
