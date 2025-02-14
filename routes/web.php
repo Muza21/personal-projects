@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 // GET 	/posts 	index 	posts.index
@@ -12,27 +13,29 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('posts', PostController::class);
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('posts.index');
 });
 
-Route::get('/posts/create', function(){
+Route::get('/posts/create', function () {
     return view('posts.create');
 });
 
-Route::get('/posts/edit', function(){
+Route::get('/posts/edit', function () {
     return view('posts.edit');
 });
 
-Route::get('/posts/{post}', function(){
+Route::get('/posts/{post}', function () {
     return view('posts.show');
 });
 
-Route::get('/login', function(){
+Route::get('/login', function () {
     return view('login');
 });
 
 
-Route::get('/register', function(){
+Route::get('/register', function () {
     return view('register');
 });
+
+Route::post('/register', [RegisterController::class, 'register']);
