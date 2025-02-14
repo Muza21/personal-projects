@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -15,8 +16,8 @@ class RegisterController extends Controller
     public function store(StoreUserRequest $request)
     {
         $validated = $request->validated();
-        $user = new User($validated);
-        $user->save();
-        return redirect('/');
+        $validated['password'] = Hash::make($validated['password']);
+        $user = User::create($validated);
+        return redirect('/login');
     }
 }
