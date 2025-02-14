@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -12,12 +12,18 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $validated = $request->validated();
+        // dd($validated);
+        $user = new User([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => $validated['password'],
+        ]);
+        // $user->name = $validated->name;
+        // $user->email = $validated->email;
+        // $user->password = $validated->password;
         $user->save();
         return redirect('/');
     }
