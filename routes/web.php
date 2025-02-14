@@ -1,34 +1,9 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-
-// GET 	/posts 	index 	posts.index
-// GET 	/posts/create 	create 	posts.create
-// POST 	/posts 	store 	posts.store
-// GET 	/posts/{post} 	show 	posts.show
-// GET 	/posts/{post}/edit 	edit 	posts.edit
-// PUT/PATCH 	/posts/{post} 	update 	posts.update
-// DELETE 	/posts/{post} 	destroy 	posts.destroy
-
-// Route::resource('posts', PostController::class);
-
-Route::get('/', function () {
-    return view('posts.index');
-});
-
-Route::get('/posts/create', function () {
-    return view('posts.create');
-});
-
-Route::get('/posts/edit', function () {
-    return view('posts.edit');
-});
-
-Route::get('/posts/{post}', function () {
-    return view('posts.show');
-});
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);
@@ -37,4 +12,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-// Route::middleware()
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
