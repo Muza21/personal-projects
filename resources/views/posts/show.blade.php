@@ -6,35 +6,29 @@
                 <address class="flex items-center mb-6 not-italic">
                     <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                         <div>
-                            <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">Jese
-                                Leos</a>
+                            <p class="text-xl font-bold text-gray-900 dark:text-white">
+                                {{ $post->user->name }}
+                            </p>
                             <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                                    title="February 8th, 2022">Feb. 8, 2022</time></p>
+                                    title="February 8th, 2022">
+                                    {{ $post->created_at->format('F j, Y, g:i a') }}
+                                </time></p>
                         </div>
                     </div>
                 </address>
                 <h3
                     class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                    Best practices for successful prototypes</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, dolores aperiam! Inventore,
-                    saepe praesentium! Aspernatur, impedit, aperiam porro dolores animi quibusdam, non est perspiciatis
-                    maxime incidunt dolorem debitis eius odio!
-                    Quidem impedit quam vero officia facere, natus placeat porro alias perferendis totam eligendi error?
-                    Quos, sunt! Voluptas ab at ipsa ex repellendus, nemo deserunt amet doloribus asperiores,
-                    perspiciatis, voluptatibus reiciendis.
-                    Quod minima tempora numquam mollitia, molestias quisquam repellendus alias odit, debitis nostrum,
-                    quia ut! Omnis voluptatum sed molestiae mollitia quo, unde nulla similique, aspernatur, minima
-                    libero ad at iure tempore.
-                    Nulla delectus corrupti magni quaerat debitis nostrum eum consequatur perspiciatis velit quis
-                    aliquam veritatis repellat, impedit voluptatum nam ullam animi aliquid minus asperiores accusantium
-                    aut voluptatem? Dolorum repellat magni placeat.
-                    Vero quae perspiciatis deserunt commodi necessitatibus ullam earum reprehenderit, id dolorem
-                    suscipit maxime sint placeat quas blanditiis aspernatur minus quia laborum numquam ratione, neque
-                    temporibus tenetur debitis dolore est. Perspiciatis.</p>
+                    {{ $post->title }}
+                </h3>
+                <p>
+                    {{ $post->content }}
+                </p>
                 <section class="not-format">
                     <div class="flex justify-between items-center mb-6 mt-6">
-                        <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+                        <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion ({{
+                            $post->comments->count() }})</h2>
                     </div>
+                    @if(auth()->check())
                     <form class="mb-6">
                         @csrf
                         <div
@@ -49,20 +43,27 @@
                             Post comment
                         </button>
                     </form>
+                    @endif
+                    @foreach($post->comments as $comment)
                     <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
                         <footer class="flex justify-between items-center mb-2">
                             <div class="flex items-center">
                                 <p
                                     class="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
-                                    Michael Gough</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                                        title="February 8th, 2022">Feb. 8, 2022</time></p>
+                                    {{ $comment->user->name }}
+                                </p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    <time pubdate datetime="2022-02-08" title="February 8th, 2022">
+                                        {{ $comment->created_at->format('F j, Y, g:i a') }}
+                                    </time>
+                                </p>
                             </div>
                         </footer>
-                        <p>Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
-                            instruments for the UX designers. The knowledge of the design tools are as important as the
-                            creation of the design strategy.</p>
+                        <p>
+                            {{ $comment->body }}
+                        </p>
                     </article>
+                    @endforeach
                 </section>
         </article>
     </div>
