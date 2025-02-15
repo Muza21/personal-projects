@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -18,6 +19,7 @@ class RegisterController extends Controller
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
-        return redirect('/login');
+        Auth::login($user);
+        return redirect('/')->with('success', 'Registered successfully.');
     }
 }
