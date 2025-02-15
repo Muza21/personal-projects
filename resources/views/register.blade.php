@@ -52,7 +52,7 @@
 
                 <p class="mt-10 text-center text-sm/6 text-gray-500">
                     Already have an account?
-                    <a href="/login" class="font-semibold text-indigo-600 hover:text-indigo-500">
+                    <a href="{{ route('login.index') }}" class="font-semibold text-indigo-600 hover:text-indigo-500">
                         Login
                     </a>
                 </p>

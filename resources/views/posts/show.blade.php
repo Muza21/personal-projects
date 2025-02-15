@@ -58,6 +58,17 @@
                                     </time>
                                 </p>
                             </div>
+                            <div>
+                                @if(auth()->id() == $comment->user_id)
+                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">
+                                        <x-icons.delete-icon />
+                                    </button>
+                                </form>
+                                @endif
+                            </div>
                         </footer>
                         <p>
                             {{ $comment->body }}
