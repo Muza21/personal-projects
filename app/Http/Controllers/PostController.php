@@ -26,7 +26,7 @@ class PostController extends Controller
         }
         Post::create([
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => trim($request->content),
             'user_id' => Auth::id(),
         ]);
         return redirect()->route('posts.index');
@@ -51,7 +51,6 @@ class PostController extends Controller
         if ($post->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-
 
         $post->update([
             'title' => $request->title,

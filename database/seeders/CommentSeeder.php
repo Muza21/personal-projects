@@ -23,7 +23,7 @@ class CommentSeeder extends Seeder
             return;
         }
 
-        Comment::factory()->count(50)->create([
+        Comment::factory()->count(10)->create([
             'user_id' => $users->random()->id,
             'post_id' => $posts->random()->id,
         ]);

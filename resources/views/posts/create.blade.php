@@ -8,8 +8,7 @@
             <input name="title" class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
                 spellcheck="false" placeholder="Title" type="text">
             <textarea name="content" class="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
-                spellcheck="false" placeholder="Describe everything about this post here">
-            </textarea>
+                spellcheck="false" placeholder="Describe everything about this post here"></textarea>
 
             <div class="buttons flex mt-2">
                 <a href="{{ url()->previous() }}"
