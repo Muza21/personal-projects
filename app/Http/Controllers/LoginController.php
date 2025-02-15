@@ -24,14 +24,12 @@ class LoginController extends Controller
             return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
         }
         Auth::login($user);
-        // session(['user_id' => $user->id]);
         return redirect('/')->with('success', 'Logged in successfully.');
     }
 
     public function logout()
     {
         Auth::logout();
-        // Session::forget('user_id');
         return redirect('/login');
     }
 }
