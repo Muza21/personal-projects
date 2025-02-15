@@ -9,7 +9,7 @@
             <span class="mt-1 text-gray-500 text-sm">
               {{ $post->created_at->format('F j, Y, g:i a') }}
             </span>
-            @if(session()->has('user_id') && session('user_id') === $post->user_id)
+            @if(auth()->check() && auth()->id() === $post->user_id)
             <span class="flex gap-[10px] mt-4">
               <a href="{{ route('posts.edit', $post) }}" class="hover:bg-gray-300 p-2 rounded-md block">
                 <x-icons.edit-icon />

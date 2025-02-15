@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="ml-4 flex items-center md:ml-6">
-                @if(session()->has('user_id'))
+                @if(auth()->check())
                 <form action="/logout" method="POST">
                     @csrf
                     <button

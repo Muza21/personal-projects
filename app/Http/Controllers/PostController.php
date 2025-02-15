@@ -21,12 +21,14 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->back()->with('error', 'You must be logged in to create a post.');
+        }
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => Auth::id(),
         ]);
-
         return redirect()->route('posts.index');
     }
 
