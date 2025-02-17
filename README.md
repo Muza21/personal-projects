@@ -35,10 +35,10 @@ Select which project you want to do out of these tree (task manager, finance tra
 
     In order to run this website locally run the following commands:
 ```sh
-    git clone git@github.com:Muza21/simple-blog-platform.git
-    cd simple-blog-platform/
-    composer install
-    cp .env.example .env
-    php artisan key:generate
-    php artisan migrate
+git clone git@github.com:Muza21/simple-blog-platform.git
+cd simple-blog-platform/
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
 ```
