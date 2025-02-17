@@ -23,14 +23,13 @@ class LoginController extends Controller
             return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
         }
 
-        return redirect()->route('posts.index')->with('success', 'Logged in successfully.');
+        return redirect()->intended(route('posts.index'))->with('success', 'Logged in successfully.');
     }
 
     public function logout()
     {
         Auth::logout();
-        Session::invalidate();
-        Session::regenerateToken();
+        Session::flush();
         return redirect()->route('login.index');
     }
 }

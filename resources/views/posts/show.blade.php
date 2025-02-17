@@ -39,7 +39,7 @@
                                 placeholder="Write a comment..." required></textarea>
                         </div>
                         <button type="submit"
-                            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 hover:bg-blue-950 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                             Post comment
                         </button>
                     </form>
@@ -63,7 +63,7 @@
                                 <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit">
+                                    <button type="submit" class="hover:bg-gray-300 p-2 rounded-md">
                                         <x-icons.delete-icon />
                                     </button>
                                 </form>

@@ -37,7 +37,8 @@
               {{ Str::limit($post->content, 200, '...') }}
             </p>
             <div class="mt-4">
-              <a href="{{ route('posts.show', $post) }}" class="text-indigo-500 inline-flex items-center">Learn More
+              <a href="{{ route('posts.show', $post) }}"
+                class="text-indigo-500 inline-flex items-center hover:underline">Learn More
                 <x-icons.arrow-icon />
               </a>
             </div>

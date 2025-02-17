@@ -3,7 +3,8 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="flex items-baseline space-x-4">
-                    <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                    <a href="/"
+                        class="rounded-md {{ Route::is('posts.index') ? 'bg-gray-900 text-white' : '' }} px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         aria-current="page">Blogs</a>
                 </div>
             </div>
@@ -17,10 +18,10 @@
                 </form>
                 @else
                 <a href="{{ route('login.index') }}"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    class="{{ Route::is('login.index') ? 'bg-gray-900 text-white' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     aria-current="page">Login</a>
                 <a href="{{ route('register.index') }}"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    class="{{ Route::is('register.index') ? 'bg-gray-900 text-white' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     aria-current="page">Register</a>
                 @endif
 
