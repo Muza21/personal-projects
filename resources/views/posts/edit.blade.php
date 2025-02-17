@@ -9,9 +9,20 @@
             <input name="title" value="{{ old('title', $post->title) }}"
                 class="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none" spellcheck="false"
                 placeholder="Title" type="text" required>
+            @error('title')
+            <div class="mb-2 text-sm text-red-600">
+                {{ $message }}
+            </div>
+            @enderror
+
             <textarea name="content" class="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
                 spellcheck="false" placeholder="Describe everything about this post here"
                 required>{{ old('content', $post->content) }}</textarea>
+            @error('content')
+            <div class="mb-2 text-sm text-red-600">
+                {{ $message }}
+            </div>
+            @enderror
 
             <div class="buttons flex mt-2">
                 <a href="{{ url()->previous() }}"

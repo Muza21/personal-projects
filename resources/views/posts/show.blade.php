@@ -37,6 +37,12 @@
                             <textarea name="comment" id="comment" rows="6"
                                 class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="Write a comment..." required></textarea>
+                            @error('comment')
+                            <div class="mb-2 text-sm text-red-600">
+                                {{ $message }}
+                            </div>
+                            @enderror
+
                         </div>
                         <button type="submit"
                             class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 hover:bg-blue-950 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
@@ -44,7 +50,7 @@
                         </button>
                     </form>
                     @endif
-                    @foreach($post->comments as $comment)
+                    @foreach($comments as $comment)
                     <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
                         <footer class="flex justify-between items-center mb-2">
                             <div class="flex items-center">
