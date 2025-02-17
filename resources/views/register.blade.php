@@ -17,6 +17,11 @@
                         <input type="text" name="name" id="name" autocomplete="name" required
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                     </div>
+                    @error('name')
+                    <div class="mt-2 text-sm text-red-600">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
 
                 <div>
@@ -27,6 +32,11 @@
                         <input type="email" name="email" id="email" autocomplete="email" required
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                     </div>
+                    @error('email')
+                    <div class="mt-2 text-sm text-red-600">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
 
                 <div>
@@ -37,6 +47,11 @@
                         <input type="password" name="password" id="password" autocomplete="current-password" required
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                     </div>
+                    @error('password')
+                    <div class="mt-2 text-sm text-red-600">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
 
                 <div>
@@ -48,6 +63,11 @@
                             autocomplete="current-password" required
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                     </div>
+                    @error('password_confirmation')
+                    <div class="mt-2 text-sm text-red-600">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
 
                 <p class="mt-10 text-center text-sm/6 text-gray-500">

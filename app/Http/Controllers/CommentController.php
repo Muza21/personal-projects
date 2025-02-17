@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentStoreRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -9,14 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, Post $post)
+    public function store(CommentStoreRequest $request, Post $post)
     {
+        $validated = $request->validated();
+
         if (!Auth::check()) {
             return redirect()->back()->with('error', 'You must be logged in to comment to a post.');
         }
 
         Comment::create([
-            'body' => trim($request->comment),
+            'body' => trim($validated['comment']),
             'post_id' => $post->id,
             'user_id' => Auth::id(),
         ]);
