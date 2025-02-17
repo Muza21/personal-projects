@@ -1,6 +1,7 @@
 # Simple Blog Platform
 
  * [Description](#Description)
+ * [Features to Implement](#features-to-implement)
  * [Purpose](#Purpose)
  * [Requirements](#requirements)
  * [Getting started](#getting-started)
@@ -10,18 +11,18 @@
 
 A blogging app where users can write posts and leave comments.
 
-### Features to Implement:
+## Features to Implement:
 
 -   User authentication and authorization (only logged-in users can create/edit/delete posts).
 -   CRUD operations for blog posts.
 -   A comments system (one-to-many relationship between posts and comments).
 -   Post and comment timestamps.
 
-### Purpose:
+## Purpose:
 
 Demonstrates knowledge of relationships, Eloquent ORM, and basic request validation.
 
-### requirements
+## requirements
 
 Final Project
 The idea of the final project for you is to demonstrate your Laravel skills.
@@ -33,7 +34,8 @@ Select which project you want to do out of these tree (task manager, finance tra
 
 ## Getting started:
 
-    In order to run this website locally run the following commands:
+In order to run this website locally run the following commands:
+
 ```sh
 git clone git@github.com:Muza21/simple-blog-platform.git
 cd simple-blog-platform/
@@ -41,4 +43,6 @@ composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
+php artisan db:seed
+php artisan serve
 ```
