@@ -20,7 +20,7 @@
                     class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
                     {{ $post->title }}
                 </h3>
-                <p>
+                <p class="break-words">
                     {{ $post->content }}
                 </p>
                 <section class="not-format">

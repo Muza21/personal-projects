@@ -2,6 +2,11 @@
   <section class="text-gray-600 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="-my-8 divide-y-2 divide-gray-100">
+        @if($posts->isEmpty())
+        <h2 class="text-3xl text-center font-medium text-gray-900 title-font mb-2">
+          No Posts
+        </h2>
+        @endif()
         @foreach ($posts as $post)
         <div class="py-8 flex flex-wrap md:flex-nowrap">
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
@@ -28,12 +33,14 @@
             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
               {{ $post->title}}
             </h2>
-            <p class="leading-relaxed">
-              {{ $post->content }}
+            <p class="leading-relaxed break-all">
+              {{ Str::limit($post->content, 200, '...') }}
             </p>
-            <a href="{{ route('posts.show', $post) }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
-              <x-icons.arrow-icon />
-            </a>
+            <div class="mt-4">
+              <a href="{{ route('posts.show', $post) }}" class="text-indigo-500 inline-flex items-center">Learn More
+                <x-icons.arrow-icon />
+              </a>
+            </div>
           </div>
         </div>
         @endforeach
