@@ -22,10 +22,14 @@ class CommentSeeder extends Seeder
             $this->command->info('No users or posts found! Run `php artisan db:seed --class=UserSeeder` and `php artisan db:seed --class=PostSeeder` first.');
             return;
         }
-
-        Comment::factory()->count(10)->create([
-            'user_id' => $users->random()->id,
-            'post_id' => $posts->random()->id,
-        ]);
+        Comment::factory()->count(20)->make()->each(function ($comment) use ($users, $posts) {
+            $comment->user_id = $users->random()->id;
+            $comment->post_id = $posts->random()->id;
+            $comment->save();
+        });
+        // Comment::factory()->count(10)->create([
+        //     'user_id' => $users->random()->id,
+        //     'post_id' => $posts->random()->id,
+        // ]);
     }
 }

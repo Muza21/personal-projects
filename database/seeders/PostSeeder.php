@@ -21,8 +21,9 @@ class PostSeeder extends Seeder
             return;
         }
 
-        Post::factory()->count(5)->create([
-            'user_id' => $users->random()->id,
-        ]);
+        Post::factory()->count(5)->make()->each(function ($post) use ($users) {
+            $post->user_id = $users->random()->id;
+            $post->save();
+        });
     }
 }
