@@ -19,17 +19,18 @@ class LoginController extends Controller
     {
         $validated = $request->validated();
 
-        $user = User::where('email', $validated['email'])->first();
-        if (!$user || !Hash::check($validated['password'], $user->password)) {
+        if (!Auth::attempt($validated)) {
             return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
         }
-        Auth::login($user);
-        return redirect('/')->with('success', 'Logged in successfully.');
+
+        return redirect()->route('posts.index')->with('success', 'Logged in successfully.');
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        Session::invalidate();
+        Session::regenerateToken();
+        return redirect()->route('login.index');
     }
 }

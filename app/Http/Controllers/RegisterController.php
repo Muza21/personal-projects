@@ -20,6 +20,7 @@ class RegisterController extends Controller
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
         Auth::login($user);
+        session()->regenerate();
         return redirect('/')->with('success', 'Registered successfully.');
     }
 }
